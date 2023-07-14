@@ -1,0 +1,4 @@
+<div class="list">
+			<Card nombre="GreenMarco" foto="https://pbs.twimg.com/profile_images/1514596216809611271/-vVfTynX_400x400.jpg" resumen="Programador, Speedrunner de Mario World, Mario 64 y Celeste"/>
+			<Card nombre="" foto="" resumen=""/>
+		</div>

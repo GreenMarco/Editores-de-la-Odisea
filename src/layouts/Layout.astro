@@ -1,36 +1,106 @@
 ---
-export interface Props {
-	title: string;
+import Card from '../components/Card.astro';
+interface Props {
+	pageTitle?: string
+	pageDescripion?:string
 }
 
-const { title } = Astro.props;
+const {pageTitle = "", pageDescripion=""} = Astro.props
 ---
-
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description">
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>{pageTitle}</title>
+		<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+		<meta name="description" content={pageDescripion}>
 	</head>
 	<body>
-		<slot />
+		<header>
+			<h1>Editores de la Odisea</h1>
+			<ul>
+				<li>Inicio</li>
+				<li>Memes</li>
+				<li>Acerca de </li>
+				<li>Contacto</li>
+			</ul>
+
+		</header>
+			<main>
+				<slot/>
+			</main>
+		<footer>
+			<div>
+				<h2>La Odisea de los Memes</h2>
+				<ul>
+					<li><i class='bx bxl-facebook-circle'></i> Facebook</li>
+					<li><i class='bx bxl-twitter'></i> Twitter</li>
+					<li><i class='bx bxl-youtube'></i> Youtube</li>
+					<li><i class='bx bx-phone'></i>Tel: +52 668667451</li>
+				</ul>
+			</div>
+			<h4 style="text-align: right;">GM 2023</h4>
+		</footer>
 	</body>
 </html>
-<style is:global>
-	:root {
-		--accent: 124, 58, 237;
-		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
+
+<style>
+	:root{
+		background-color: rgb(33,33,33);
+		color: rgb(198, 196, 196);
+		font-family: 'Arial',sans-serif;
 	}
-	html {
-		font-family: system-ui, sans-serif;
-		background-color: #F6F6F6;
+	header{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 1rem 3rem;
+		margin-bottom: 1rem;
 	}
-	code {
-		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-			Bitstream Vera Sans Mono, Courier New, monospace;
+	
+	h1{
+		margin: 0;
+		font-weight: bold;
+	}
+	header > ul {
+		display: flex;
+		list-style: none;
+		gap: 3rem;
+		margin: 0%;
+	}
+	header > ul > li {
+		transition: 250ms;
+	}
+	header > ul >li:hover{
+		cursor:pointer;
+		text-decoration: underline;
+		color: green;
+		transform: scale(1.15);
+	}
+
+	
+	footer{
+		padding: 1rem 2rem;
+    	margin-top: 4rem;
+    	background-color: rgb(75, 75, 75);	
+	}
+	footer > div{
+    	display: flex;
+    	justify-content: space-between;
+    	align-items: center;
+	}
+	footer > div > ul {
+		
+		list-style: none;
+		gap: 3rem;
+		margin: 0%;
+	}
+	footer > div > ul >li:hover{
+		cursor:pointer;
+		text-decoration: underline;
+		color: gray;
+		transform: scale(1.15);
 	}
 </style>
+
