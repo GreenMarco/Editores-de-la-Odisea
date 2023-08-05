@@ -1,12 +1,24 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Card from '../../components/Card.astro';
-import Blog from '../../components/Blog.astro';
+import Layout from "../../layouts/Layout.astro";
 
-const post = await Astro.glob('./post/*.md')
+const posts = await Astro.glob('./post/*.md')
 
-console.log("post");
+console.log(posts.map(posts =>posts.url))
+
 ---
-<Layout>
-	ci
+<Layout pageTitle='Blogs|La Odisea de los Memes' pageDescripion='Ci'>
+	
+	<div class="content">
+	{
+		posts.map(posts =>{return <a href={posts.url}>{posts.frontmatter.title}</a>})
+		
+	}
+	</div>
+	
 </Layout>
+
+<style>
+	.content{
+
+	}
+</style>

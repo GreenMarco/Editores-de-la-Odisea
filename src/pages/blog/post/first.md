@@ -1,5 +1,6 @@
 ---
-layout: ../../layouts/Layout.astro
+layout: ../../../layouts/Layout.astro
+title: Bienvenida
 ---
 
 # Bienvenidos a la Odisea
